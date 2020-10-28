@@ -1,0 +1,248 @@
+@import './resets';
+@import './variables';
+
+@mixin media-size($max-size) {
+    @media(max-width: $max-size){
+        @content;
+    }
+}
+
+#background{
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    img{
+        width: 100%;
+        height: 100%;
+        grid-column: 1 / span 2;
+        grid-row: 1 / span 2;
+    }
+
+    @include media-size($small-screen){
+        position: fixed;
+    }
+}
+
+#container{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    width: 50vw;
+    height: 85vh;
+    justify-self: center;
+    align-self: center;
+    grid-column: 1 / span 2;
+    grid-row: 1 / span 2;
+
+    @include media-size($large-screen){
+        width: 60vw;
+        height: 85vh;
+    }
+
+    @include media-size($medium-screen){
+        width: 75vw;
+    }
+
+    @include media-size($small-screen){
+        width: 50vw;
+        height: 300px;
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: 220px 220px 220px;
+        align-self: baseline;
+        margin-top: 2rem;
+    }
+}
+
+#container #description{
+    background-color: #FFFFFF;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    
+    h2{
+        color: #3CA4A7;
+        padding-left: 2.5rem;
+        padding-top: 2rem;
+
+        @include media-size($small-screen){
+            font-size: 1.2rem;
+            padding-top: 0.7rem;
+        }
+
+        @include media-size($ex-small-screen){
+            padding-top: 0.3rem;
+        }
+    }
+
+    h3{
+        color: #D0E660;
+        font-weight: bold;
+        padding-left: 2.5rem;
+        margin-top: 2rem;
+
+        @include media-size($small-screen){
+            font-size: 1rem;
+            margin-top: 1rem;
+        }
+
+        @include media-size($ex-small-screen){
+            margin-top: 0.7rem;
+        }
+    }
+
+    p{
+        color: #C5C9D0;
+        font-weight: bold;
+        padding-left: 2.5rem;
+        letter-spacing: 0.5px;
+        line-height: 10px;
+
+        @include media-size($ex-large-screen){
+            font-size: 1rem;
+            line-height: 20px;
+        }
+
+        @include media-size($small-screen){
+            font-size: 0.7rem;
+            padding-right: 2rem;
+            line-height: unset;
+        }
+
+        @include media-size($ex-small-screen){
+            font-size: 0.61rem;
+
+        }
+    }
+}
+
+#container #price{
+    background-color: #2BB3B1;
+    border-bottom-left-radius: 10px;
+
+    @include media-size($small-screen){
+        border-bottom-left-radius: 0px;    
+    }
+
+    h3{
+        color: #DEFFFF;
+        font-weight: bold;
+        letter-spacing: 1px;
+        padding-left: 2.5rem;
+        padding-top: 2rem;
+
+        @include media-size($small-screen){
+            padding-top: 0.3rem;
+        }
+
+        @include media-size($ex-small-screen){
+            font-size: 1rem;
+        }
+    }
+
+    h1{
+        color: #F5FFFF;
+        letter-spacing: 1px;
+        padding-left: 2.5rem;
+
+        span{
+            font-size: 0.5em;
+            padding-left: 0.2rem;
+            opacity: 0.4;
+        }
+
+        @include media-size($ex-small-screen){
+            font-size: 1.7rem;
+        }
+    }
+
+    p{
+        color: #A6EDED;
+        font-weight: bold;
+        padding-left: 2.5rem;
+        letter-spacing: 0.5px;
+    }
+
+    #btn{
+        width: 67%;
+        height: 7vh;
+        background-color: #BFDF32;
+        color: #F1FEB8;
+        font-size: 1.2rem;
+        font-weight: bold;
+        margin-left: 2.5rem;
+        margin-top: 1rem;
+        border: none;
+        outline-style: none;
+        border-radius: 8px;
+
+        &:hover{
+            background-color: #c8dd67;
+            cursor: pointer;
+            font-size: 1.3rem;
+        }
+
+        &:active{
+            background-color: #FFFFFF;
+            font-size: 1.4rem;
+            color: #BFDF32;
+            outline-style: none;
+            border-style: ridge;
+            border: #BFDF32;           
+        }
+
+        @include media-size($large-screen){
+            width: 75%;
+            margin-top: 3rem;
+        }
+
+        @include media-size($medium-screen){
+            width: 75%;
+            margin-top: 2rem;
+        }
+
+        @include media-size($small-screen){
+            margin-top: 0.5px;
+            width: 75%;
+            height: 15%;
+            
+        }
+    }
+}
+
+#container #why-us{
+    background-color: #4ABEBD;
+    border-bottom-right-radius: 10px;
+
+    h3{
+        color: #DEFFFF;
+        font-weight: bold;
+        letter-spacing: 1px;
+        padding-left: 2.5rem;
+        padding-top: 2rem;
+
+        @include media-size($small-screen){
+            padding-top: 0.3rem;
+        }
+    }
+
+    ul{
+        color: #A6EDED;
+        font-weight: bold;
+        padding-left: 2.5rem;
+        list-style: none;
+        line-height: 25px;
+
+        @include media-size($small-screen){
+            font-size: 12px;
+            line-height: 20px;
+        }
+    }
+
+    @include media-size($small-screen){
+        grid-column-start: 1;
+        grid-column-end: 3;
+    }
+}
